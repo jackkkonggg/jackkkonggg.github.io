@@ -1,14 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
+import { Avatar } from '@/design-system/Avatar';
 import { FC } from 'react';
-import { Button } from '../design-system/Button';
-import { Link } from '../design-system/Link';
+import { Button } from '@/design-system/Button';
+import { Link } from '@/design-system/Link';
 
 export const NavBar: FC = () => {
   return (
     <header className="fixed top-0 py-8 px-12 w-full text-sm sm:px-6 lg:px-10">
       <nav className="flex items-center w-full font-mono text-slate-light">
         <a className="flex-grow">
-          <img src="/vercel.svg" height="30px" alt="vercel-logo" />
+          <Avatar>
+            <h1 className="text-navy-dark">J</h1>
+          </Avatar>
         </a>
         <ol className="flex items-center justify-between [counter-reset:item_0]">
           {['About', 'Experience', 'Work', 'Contact'].map((item, index) => (
