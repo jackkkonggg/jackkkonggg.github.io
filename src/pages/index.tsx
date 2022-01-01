@@ -7,15 +7,15 @@ const Home: NextPage = () => {
   return (
     <Fragment>
       <NavBar />
-      <main className="container mx-auto selection:text-white selection:bg-slate-500">
+      <main className="container mx-auto selection:text-white selection:bg-slate-dark">
         <section
           id="hero"
           className="flex flex-col justify-center mx-auto min-h-screen prose"
         >
-          <p className="font-mono text-green-300">Hi, my name is</p>
-          <h1 className="text-slate-100">Jack Ong.</h1>
-          <h1 className="text-slate-300">I build things for the web.</h1>
-          <p className="text-slate-300">
+          <p className="font-mono text-green">Hi, my name is</p>
+          <h1 className="text-slate-light">Jack Ong.</h1>
+          <h1 className="text-slate-dark">I build things for the web.</h1>
+          <p className="text-slate-dark">
             I’m a software engineer specializing in building (and occasionally
             designing) exceptional digital experiences. Currently, I’m focused
             on building accessible, human-centered products at{' '}
