@@ -1,15 +1,22 @@
 import { AnchorHTMLAttributes, FC } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {}
+interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  disableHoverEffects?: boolean;
+}
 
-export const Link: FC<LinkProps> = ({ children, className, ...props }) => {
+export const Link: FC<LinkProps> = ({
+  children,
+  className,
+  disableHoverEffects = false,
+  ...props
+}) => {
   return (
     <a
       className={twMerge(
-        'no-underline text-green hover:text-green transition-all',
+        'no-underline text-green transition-all',
         `after:content-[''_!important] after:h-[2px] after:relative after:bottom-1 after:bg-current after:opacity-50 after:transition-all after:w-0 after:block`,
-        'hover:after:w-full',
+        !disableHoverEffects && 'hover:text-green hover:after:w-full',
         className,
       )}
       {...props}

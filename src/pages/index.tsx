@@ -2,6 +2,7 @@ import { Link } from '@/design-system/Link';
 import { NavBar } from '@/components/NavBar';
 import { NextPage } from 'next';
 import { Fragment } from 'react';
+import { Socials } from '@/components/Socials';
 
 const Home: NextPage = () => {
   return (
@@ -14,7 +15,7 @@ const Home: NextPage = () => {
         >
           <p className="font-mono text-green">Hi, my name is</p>
           <h1 className="text-slate-light">Jack Ong.</h1>
-          <h1 className="text-slate-dark">I build things for the web.</h1>
+          <h2 className="text-slate-dark">I build things for the web.</h2>
           <p className="text-slate-dark">
             I’m a software engineer specializing in building (and occasionally
             designing) exceptional digital experiences. Currently, I’m focused
@@ -26,6 +27,7 @@ const Home: NextPage = () => {
           </p>
         </section>
       </main>
+      <Socials />
     </Fragment>
   );
 };
