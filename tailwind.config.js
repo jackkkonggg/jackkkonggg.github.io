@@ -14,6 +14,10 @@ module.exports = {
       'slate-main': '#a8b2d1',
       'slate-dark': '#8892b0',
     },
+    fontFamily: {
+      sans: ['"DM Sans"', 'sans-serif'],
+      mono: ['"Fira Mono"', 'monospace'],
+    },
     extend: {},
   },
   plugins: [require('@tailwindcss/typography')],
