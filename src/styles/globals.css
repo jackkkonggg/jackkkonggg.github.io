@@ -6,9 +6,6 @@
   body {
     @apply bg-navy-dark;
   }
-  content {
-    @apply space-y-4;
-  }
 }
 
 @layer utilities {

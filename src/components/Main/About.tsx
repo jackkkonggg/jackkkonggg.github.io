@@ -20,9 +20,9 @@ const Technologies: FC<TechnologiesProps> = ({ technologies }) => {
 
 export const About: FC = () => {
   return (
-    <section className="my-24">
+    <section className="py-24">
       <AutoNumberedHeading heading="About Me" />
-      <div className="mt-10 space-y-4 text-slate-dark">
+      <div className="space-y-4 text-slate-dark">
         <p>
           Hello! My name is Jack and I enjoy creating things that live on the
           internet. My interest in web development started back in 2020 when I

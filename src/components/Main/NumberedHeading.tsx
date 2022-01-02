@@ -10,7 +10,7 @@ export const AutoNumberedHeading: FC<AutoNumberedHeadingProps> = ({
   heading,
 }) => {
   return (
-    <div className="flex items-center gap-5">
+    <div className="flex items-center gap-5 mb-10">
       <h2
         className={clsx(
           'counter-increment',
