@@ -19,7 +19,6 @@ module.exports = {
       sans: ['"DM Sans"', 'sans-serif'],
       mono: ['"Fira Mono"', 'monospace'],
     },
-    extend: {},
   },
   plugins: [require('@tailwindcss/typography')],
 };

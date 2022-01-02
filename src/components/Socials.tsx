@@ -60,7 +60,7 @@ export const Socials: FC = () => {
         >
           {PERSONAL_EMAIL}
         </Link>
-        <div className="h-px w-20 bg-current transition-colors delay-150" />
+        <div className="w-20 h-px bg-current transition-colors delay-150" />
       </div>
     </Fragment>
   );
