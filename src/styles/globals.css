@@ -6,11 +6,30 @@
   body {
     @apply bg-navy-dark;
   }
+  content {
+    @apply space-y-4;
+  }
 }
 
 @layer utilities {
+  .text-sm-scalable {
+    font-size: clamp(16px, 3vw, 20px);
+    font-weight: 600;
+  }
+  .text-md-scalable {
+    font-size: clamp(26px, 5vw, 32px);
+    font-weight: 600;
+  }
   .text-lg-scalable {
     font-size: clamp(40px, 8vw, 80px);
     font-weight: 600;
+  }
+
+  .counter-reset {
+    counter-reset: item 0;
+  }
+
+  .counter-increment {
+    counter-increment: item 1;
   }
 }
