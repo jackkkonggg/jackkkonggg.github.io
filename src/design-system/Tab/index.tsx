@@ -1,10 +1,25 @@
-import { FC, useRef } from 'react';
+import { FC, MouseEvent, useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import {
   TabContextProvider,
   TabContextValue,
   useTabContext,
 } from './TabContextProvider';
+
+const TabIndicator: FC = () => {
+  const { indicator } = useTabContext();
+  return (
+    <div className="absolute top-0 h-full w-[2px] bg-navy-light">
+      <span
+        className="absolute h-full w-[2px] bg-green transition-all duration-300"
+        style={{
+          top: indicator.top,
+          height: indicator.height,
+        }}
+      />
+    </div>
+  );
+};
 
 interface TabGroupProps extends TabContextValue {
   'aria-label': string;
@@ -22,19 +37,24 @@ export const TabGroup: FC<TabGroupProps> = ({
   'aria-labelledby': ariaLabelledBy,
   className,
 }) => {
+  const tabGroupRef = useRef<HTMLDivElement>(null);
+
   return (
     <TabContextProvider
       activeTabIndex={activeTabIndex}
       setActiveTabIndex={setActiveTabIndex}
+      tabGroupRef={tabGroupRef}
     >
       <div
+        ref={tabGroupRef}
         aria-label={ariaLabel}
         aria-labelledby={ariaLabelledBy}
         aria-orientation={orientation}
         role="tablist"
-        className={twMerge(className)}
+        className={twMerge(className, 'relative')}
       >
         {children}
+        <TabIndicator />
       </div>
     </TabContextProvider>
   );
@@ -46,14 +66,21 @@ interface TabItemProps {
 }
 
 export const TabItem: FC<TabItemProps> = ({ index, className, children }) => {
-  const { activeTabIndex, setActiveTabIndex } = useTabContext();
+  const { activeTabIndex, setActiveTabIndex, setCurrentTabItemRef } =
+    useTabContext();
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const isSelected = index === activeTabIndex;
 
-  const handleClick = () => {
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     setActiveTabIndex(index);
   };
+
+  useEffect(() => {
+    if (isSelected) {
+      setCurrentTabItemRef(buttonRef);
+    }
+  }, [isSelected, setCurrentTabItemRef]);
 
   return (
     <button

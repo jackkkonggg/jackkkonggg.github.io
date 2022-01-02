@@ -4,6 +4,7 @@ import { AutoNumberedHeading } from './NumberedHeading';
 
 export const Experience: FC = () => {
   const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
+
   return (
     <section className="py-24">
       <AutoNumberedHeading heading="Where I've Worked" />
@@ -15,17 +16,15 @@ export const Experience: FC = () => {
         setActiveTabIndex={setActiveTabIndex}
         className="w-fit"
       >
-        {['EventX', 'Carbonbase', 'HKUST Robotics Team'].map(
-          (company, index) => (
-            <Tab.Item
-              key={company}
-              className="font-mono w-full text-left"
-              index={index}
-            >
-              {company}
-            </Tab.Item>
-          ),
-        )}
+        {['EventX', 'Carbonbase', 'HKUST Robotics'].map((company, index) => (
+          <Tab.Item
+            key={company}
+            className="font-mono w-full text-left"
+            index={index}
+          >
+            {company}
+          </Tab.Item>
+        ))}
       </Tab.Group>
     </section>
   );
