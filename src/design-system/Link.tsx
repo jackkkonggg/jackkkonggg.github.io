@@ -14,8 +14,8 @@ export const Link: FC<LinkProps> = ({
   return (
     <a
       className={twMerge(
-        'no-underline text-green transition-all',
-        `after:content-[''_!important] after:h-[2px] after:relative after:bottom-1 after:bg-current after:opacity-50 after:transition-all after:w-0 after:block`,
+        'relative no-underline text-green transition-all',
+        `after:content-[''_!important] after:h-0.5 after:absolute after:left-0 after:bottom-0 after:bg-current after:opacity-50 after:transition-all after:w-0 after:block`,
         !disableHoverEffects && 'hover:text-green hover:after:w-full',
         className,
       )}

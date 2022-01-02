@@ -1,4 +1,4 @@
-import { FC, MouseEvent, useEffect, useRef } from 'react';
+import { FC, MouseEvent, useEffect, useRef, HTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 import {
   TabContextProvider,
@@ -21,7 +21,8 @@ const TabIndicator: FC = () => {
   );
 };
 
-interface TabGroupProps extends TabContextValue {
+interface TabGroupProps
+  extends Pick<TabContextValue, 'activeTabIndex' | 'setActiveTabIndex'> {
   'aria-label': string;
   'aria-labelledby': string;
   orientation: 'vertical'; // Currently only supports vertical
@@ -90,7 +91,7 @@ export const TabItem: FC<TabItemProps> = ({ index, className, children }) => {
       className={twMerge(
         'block px-5 py-3  text-slate-dark text-sm transition-all duration-300',
         isSelected && 'text-green',
-        'hover:bg-navy-light hover:text-green',
+        'hover:bg-navy-main hover:text-green',
         className,
       )}
       onClick={handleClick}
@@ -100,7 +101,15 @@ export const TabItem: FC<TabItemProps> = ({ index, className, children }) => {
   );
 };
 
+interface TabPanelProps
+  extends Exclude<HTMLAttributes<HTMLDivElement>, 'role'> {}
+
+const TabPanel: FC<TabPanelProps> = (props) => (
+  <div role="tabpanel" {...props} />
+);
+
 export const Tab = {
   Group: TabGroup,
   Item: TabItem,
+  Panel: TabPanel,
 };
