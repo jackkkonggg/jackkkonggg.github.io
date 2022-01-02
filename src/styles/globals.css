@@ -29,4 +29,8 @@
   .counter-increment {
     counter-increment: item 1;
   }
+
+  .before-green-counter {
+    @apply before:content-['0'_counter(item)_'.'] before:relative before:font-mono before:text-green;
+  }
 }

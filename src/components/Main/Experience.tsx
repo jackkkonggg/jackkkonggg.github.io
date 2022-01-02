@@ -84,7 +84,7 @@ export const Experience: FC = () => {
             ))}
         </Tab.Group>
         <Tab.Panel className="grow relative py-1.5">
-          <h3 className="text-slate-dark font-medium text-xl">
+          <h3 className="text-slate-light font-medium text-xl">
             <span>{selectedExperience.position} </span>
             <span className="text-green"> @ </span>
             <Link href={selectedExperience.companyUri} target="_blank">

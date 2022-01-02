@@ -18,7 +18,7 @@ export const NavBar: FC = () => {
             <li key="item" className="px-6 py-4 counter-increment">
               <Link
                 href="#"
-                className="before:content-['0'_counter(item)_'.'] before:mr-1 before:text-green text-slate"
+                className="before-green-counter before:mr-1 text-slate"
               >
                 {item}
               </Link>

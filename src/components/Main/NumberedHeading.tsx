@@ -15,7 +15,7 @@ export const AutoNumberedHeading: FC<AutoNumberedHeadingProps> = ({
         className={clsx(
           'counter-increment',
           'text-md-scalable text-slate-light',
-          `before:content-['0'_counter(item)_'.'] before:relative before:font-mono before:text-green before:text-sm-scalable before:bottom-[2px] before:mr-2`,
+          `before-green-counter before:bottom-[2px] before:mr-2 before:text-sm-scalable`,
         )}
       >
         {heading}
