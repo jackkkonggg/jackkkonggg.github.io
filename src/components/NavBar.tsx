@@ -43,7 +43,7 @@ export const NavBar: FC = () => {
         'fixed top-0  w-full text-sm sm:px-10 lg:px-10',
         'backdrop-blur bg-[rgba(10,25,47,0.85)] z-10 transition-all duration-500',
         isScrollAtTop ? 'py-8' : 'py-4',
-        !isScrollAtTop && 'nav-shadow',
+        isNavBarShown && !isScrollAtTop && 'nav-shadow',
         !isNavBarShown && '-translate-y-full',
       )}
     >
@@ -54,10 +54,10 @@ export const NavBar: FC = () => {
           </Avatar>
         </a>
         <ol className="flex items-center justify-between counter-reset">
-          {['About', 'Experience', 'Work', 'Contact'].map((item) => (
-            <li key={item} className="px-6 py-4 counter-increment">
+          {['About', 'Experience', 'Contact'].map((item) => (
+            <li key={item} className="px-3 py-2 counter-increment">
               <Link
-                href="#"
+                href={`#${item.toLowerCase()}`}
                 className="before-green-counter before:mr-1 text-slate"
               >
                 {item}
@@ -65,7 +65,7 @@ export const NavBar: FC = () => {
             </li>
           ))}
         </ol>
-        <Button>Resume</Button>
+        <Button className="ml-4">Resume</Button>
       </nav>
     </header>
   );

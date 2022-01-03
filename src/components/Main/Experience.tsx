@@ -60,7 +60,7 @@ export const Experience: FC = () => {
   const selectedExperience = experiences[activeTabIndex];
 
   return (
-    <section className="py-24 max-w-3xl mx-auto">
+    <section id="experience" className="py-24 max-w-3xl mx-auto">
       <AutoNumberedHeading heading="Where I've Worked" />
       <div className="flex gap-x-5">
         <Tab.Group

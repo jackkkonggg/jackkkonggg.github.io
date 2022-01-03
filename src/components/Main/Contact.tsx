@@ -4,7 +4,10 @@ import { AutoNumberedHeading } from './NumberedHeading';
 
 export const Contact: FC = () => {
   return (
-    <section className="py-24 max-w-xl mx-auto mb-24 flex flex-col items-center">
+    <section
+      id="contact"
+      className="py-24 max-w-xl mx-auto mb-24 flex flex-col items-center"
+    >
       <p className="counter-increment before-green-counter before:mr-2 text-sm-scalable text-green font-mono">
         What&apos;s Next?
       </p>

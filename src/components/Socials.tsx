@@ -50,7 +50,7 @@ export const Socials: FC = () => {
 
       <div
         className={twMerge(
-          'fixed bottom-0 right-12 rotate-90 origin-bottom-right text-slate-dark',
+          'fixed bottom-0 right-8 rotate-90 origin-bottom-right text-slate-dark',
           'flex items-center gap-5',
         )}
       >
