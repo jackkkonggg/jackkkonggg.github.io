@@ -15,6 +15,7 @@ module.exports = {
       'slate-light': '#ccd6f6',
       'slate-main': '#a8b2d1',
       'slate-dark': '#8892b0',
+      'slate-darker': '#495670',
     },
     fontFamily: {
       sans: ['"DM Sans"', 'sans-serif'],

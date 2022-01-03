@@ -6,6 +6,18 @@
   body {
     @apply bg-navy-dark;
   }
+
+  body::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  body::-webkit-scrollbar-track {
+    @apply bg-navy-dark;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    @apply bg-slate-darker border-solid border-navy-dark border-[3px] rounded-xl;
+  }
 }
 
 @layer utilities {
