@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { About } from './About';
+import { Contact } from './Contact';
 import { Experience } from './Experience';
 import { Hero } from './Hero';
 
@@ -9,6 +10,7 @@ export const Main: FC = () => {
       <Hero />
       <About />
       <Experience />
+      <Contact />
     </main>
   );
 };

@@ -6,6 +6,7 @@ module.exports = {
       green: '#64ffda',
       current: 'currentColor',
       transparent: 'transparent',
+      inherit: 'inherit',
 
       'navy-light': '#233554',
       'navy-main': '#112240',

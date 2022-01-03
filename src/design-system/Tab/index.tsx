@@ -1,4 +1,11 @@
-import { FC, MouseEvent, useEffect, useRef, HTMLAttributes } from 'react';
+import {
+  FC,
+  MouseEvent,
+  useEffect,
+  useRef,
+  HTMLAttributes,
+  useState,
+} from 'react';
 import { twMerge } from 'tailwind-merge';
 import {
   TabContextProvider,
@@ -104,9 +111,40 @@ export const TabItem: FC<TabItemProps> = ({ index, className, children }) => {
 interface TabPanelProps
   extends Exclude<HTMLAttributes<HTMLDivElement>, 'role'> {}
 
-const TabPanel: FC<TabPanelProps> = (props) => (
-  <div role="tabpanel" {...props} />
-);
+const TabPanel: FC<TabPanelProps> = ({ style, ...props }) => {
+  const tabPanelRef = useRef<HTMLDivElement>(null);
+  const [minHeightPx, setMinHeight] = useState(0);
+
+  useEffect(() => {
+    const currentPanelHeight =
+      tabPanelRef.current?.getBoundingClientRect().height ?? 0;
+    setMinHeight((prevMinHeight) =>
+      currentPanelHeight > prevMinHeight ? currentPanelHeight : prevMinHeight,
+    );
+
+    // Reset minHeight when tab panel resizes
+    const handleResize = () => {
+      setMinHeight(0);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [props.children]);
+
+  return (
+    <div
+      ref={tabPanelRef}
+      role="tabpanel"
+      style={{
+        ...(style ?? {}),
+        minHeight: `${minHeightPx}px`,
+      }}
+      {...props}
+    />
+  );
+};
 
 export const Tab = {
   Group: TabGroup,

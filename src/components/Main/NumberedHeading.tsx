@@ -20,7 +20,7 @@ export const AutoNumberedHeading: FC<AutoNumberedHeadingProps> = ({
       >
         {heading}
       </h2>
-      <div className="w-48 h-px bg-slate-dark" />
+      <div className="w-48 h-px bg-navy-light" />
     </div>
   );
 };

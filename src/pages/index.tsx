@@ -4,14 +4,14 @@ import { NextPage } from 'next';
 import { Fragment } from 'react';
 import { Socials } from '@/components/Socials';
 import { Main } from '@/components/Main';
-import { Contact } from '@/components/Main/Contact';
+import { Footer } from '@/components/Footer';
 
 const Home: NextPage = () => {
   return (
     <Fragment>
       <NavBar />
       <Main />
-      <Contact />
+      <Footer />
       <Socials />
     </Fragment>
   );

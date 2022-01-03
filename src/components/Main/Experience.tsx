@@ -91,7 +91,7 @@ export const Experience: FC = () => {
               {selectedExperience.companyName}
             </Link>
           </h3>
-          <p className="mt-1 font-mono text-xs text-slate-dark">
+          <p className="mt-2 font-mono text-xs text-slate-dark">
             {selectedExperience.start} - {selectedExperience.end}
           </p>
           <ul className="mt-6">
