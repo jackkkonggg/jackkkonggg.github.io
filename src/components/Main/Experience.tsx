@@ -1,4 +1,5 @@
 import { Link } from '@/design-system/Link';
+import { List } from '@/design-system/List';
 import { Tab } from '@/design-system/Tab';
 import { FC, useState } from 'react';
 import { AutoNumberedHeading } from './NumberedHeading';
@@ -94,13 +95,13 @@ export const Experience: FC = () => {
           <p className="mt-2 font-mono text-xs text-slate-dark">
             {selectedExperience.start} - {selectedExperience.end}
           </p>
-          <ul className="mt-6">
+          <List.Group variant="ordered" className="mt-6 space-y-2.5">
             {selectedExperience.accomplishments.map((accomplishment) => (
-              <li key={accomplishment} className="mt-1">
+              <List.Item key={accomplishment} listStyle="leading-[22px]">
                 <p className="text-slate-dark">{accomplishment}</p>
-              </li>
+              </List.Item>
             ))}
-          </ul>
+          </List.Group>
         </Tab.Panel>
       </div>
     </section>

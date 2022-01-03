@@ -1,3 +1,4 @@
+import { List } from '@/design-system/List';
 import { FC } from 'react';
 import { AutoNumberedHeading } from './NumberedHeading';
 
@@ -7,14 +8,13 @@ interface TechnologiesProps {
 
 const Technologies: FC<TechnologiesProps> = ({ technologies }) => {
   return (
-    <ol className="grid grid-cols-2 gap-3 text-sm">
+    <List.Group variant="ordered" className="grid grid-cols-2 gap-3 text-sm">
       {technologies.map((technology) => (
-        <li key={technology} className="flex gap-x-3">
-          <span className="text-green text-xs select-none">▹</span>
+        <List.Item key={technology} listStyle="leading-[18px]">
           <p className="font-mono">{technology}</p>
-        </li>
+        </List.Item>
       ))}
-    </ol>
+    </List.Group>
   );
 };
 

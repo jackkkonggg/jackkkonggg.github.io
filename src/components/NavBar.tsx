@@ -58,7 +58,7 @@ export const NavBar: FC = () => {
             <li key={item} className="px-3 py-2 counter-increment">
               <Link
                 href={`#${item.toLowerCase()}`}
-                className="before-green-counter before:mr-1 text-slate"
+                className="before-green-counter before:mr-1 text-slate text-xs"
               >
                 {item}
               </Link>
