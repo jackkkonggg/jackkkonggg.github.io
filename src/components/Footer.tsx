@@ -19,7 +19,14 @@ export const Footer: FC = () => {
       >
         Designed by Brittany Chiang
       </Link>
-      <p>Built by Jack Ong</p>
+      <Link
+        disableHoverUnderline
+        className="text-inherit"
+        href="https://github.com/jackkkonggg/jackkkonggg.github.io"
+        target="_blank"
+      >
+        Built by Jack Ong
+      </Link>
     </footer>
   );
 };
