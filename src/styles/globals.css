@@ -33,4 +33,8 @@
   .before-green-counter {
     @apply before:content-['0'_counter(item)_'.'] before:relative before:font-mono before:text-green;
   }
+
+  .nav-shadow {
+    box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+  }
 }
