@@ -1,3 +1,7 @@
 {
-  "extends": ["next/core-web-vitals", "prettier"]
+  "extends": ["next/core-web-vitals", "prettier"],
+  // Disable the rule for the next/router
+  "rules": {
+    "@next/next/no-img-element": "off"
+  }
 }

@@ -20,7 +20,7 @@ const Technologies: FC<TechnologiesProps> = ({ technologies }) => {
 
 export const About: FC = () => {
   return (
-    <section className="py-24">
+    <section className="py-24 max-w-4xl mx-auto">
       <AutoNumberedHeading heading="About Me" />
       <div className="grid grid-cols-[minmax(0,_1fr)_200px] gap-x-10">
         <div className="space-y-4 text-slate-dark">

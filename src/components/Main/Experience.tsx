@@ -29,7 +29,7 @@ const experiences: readonly ExperienceT[] = [
     ],
   },
   {
-    position: 'Full-Stack | Blockchain Engineer',
+    position: 'Blockchain Engineer (Part-Time)',
     companyName: 'Carbonbase',
     companyUri: 'https://www.carbonbase.co/',
     start: 'August 2021',

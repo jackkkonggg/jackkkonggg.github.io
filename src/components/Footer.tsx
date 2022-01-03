@@ -12,8 +12,8 @@ export const Footer: FC = () => {
       )}
     >
       <Link
-        disableHoverEffects
-        className="text-inherit hover:text-green"
+        disableHoverUnderline
+        className="text-inherit"
         href="https://github.com/bchiang7/v4"
         target="_blank"
       >
