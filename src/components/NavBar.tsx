@@ -4,6 +4,7 @@ import { Button } from '@/design-system/Button';
 import { Link } from '@/design-system/Link';
 import throttle from 'lodash.throttle';
 import clsx from 'clsx';
+import { Tool } from 'react-feather';
 
 let lastScrollTop = 0;
 const IS_AT_TOP_PX = 100;
@@ -48,11 +49,20 @@ export const NavBar: FC = () => {
       )}
     >
       <nav className="flex items-center w-full font-mono text-slate-light">
-        <a className="flex-grow">
+        <div className="flex flex-grow space-x-3">
           <Avatar>
             <h1 className="text-navy-dark">J</h1>
           </Avatar>
-        </a>
+          <Avatar
+            role="button"
+            className="bg-transparent"
+            onClick={() => {
+              alert('Site is still under construction');
+            }}
+          >
+            <Tool />
+          </Avatar>
+        </div>
         <ol className="flex items-center justify-between counter-reset">
           {['About', 'Experience', 'Contact'].map((item) => (
             <li key={item} className="px-3 py-2 counter-increment">

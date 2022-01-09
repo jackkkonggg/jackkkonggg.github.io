@@ -1,11 +1,9 @@
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-interface AvatarProps {
-  className?: string;
-}
+interface AvatarProps extends HTMLAttributes<HTMLDivElement> {}
 
-export const Avatar: FC<AvatarProps> = ({ className, children }) => {
+export const Avatar: FC<AvatarProps> = ({ className, children, ...props }) => {
   return (
     <div
       className={twMerge(
@@ -13,6 +11,7 @@ export const Avatar: FC<AvatarProps> = ({ className, children }) => {
         'flex justify-center items-center',
         className,
       )}
+      {...props}
     >
       {children}
     </div>
