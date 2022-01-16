@@ -1,6 +1,7 @@
 import { Link } from '@/design-system/Link';
 import { List } from '@/design-system/List';
 import { Tab } from '@/design-system/Tab';
+import clsx from 'clsx';
 import { FC, useState } from 'react';
 import { AutoNumberedHeading } from './NumberedHeading';
 
@@ -62,14 +63,14 @@ export const Experience: FC = () => {
   return (
     <section id="experience" className="py-24 max-w-3xl mx-auto">
       <AutoNumberedHeading heading="Where I've Worked" />
-      <div className="flex gap-x-5">
+      <div className={clsx('flex gap-5', 'flex-col sm:flex-row')}>
         <Tab.Group
           aria-label="Experience"
           aria-labelledby="Experience"
           orientation="vertical"
           activeTabIndex={activeTabIndex}
           setActiveTabIndex={setActiveTabIndex}
-          className="w-fit h-fit shrink-0"
+          className="flex sm:flex-col w-fit h-fit shrink-0"
         >
           {experiences
             .map(({ companyName }) => companyName)

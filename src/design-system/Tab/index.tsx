@@ -1,3 +1,5 @@
+import useMediaQuery from '@/hooks/useMediaQuery';
+import clsx from 'clsx';
 import {
   FC,
   MouseEvent,
@@ -5,6 +7,8 @@ import {
   useRef,
   HTMLAttributes,
   useState,
+  useMemo,
+  CSSProperties,
 } from 'react';
 import { twMerge } from 'tailwind-merge';
 import {
@@ -15,14 +19,39 @@ import {
 
 const TabIndicator: FC = () => {
   const { indicator } = useTabContext();
+  const verticalMode = useMediaQuery('@media (min-width: 640px)');
+
+  const style = useMemo<CSSProperties>(() => {
+    if (verticalMode) {
+      return {
+        top: indicator.top,
+        height: indicator.height,
+      };
+    }
+
+    return {
+      left: indicator.left,
+      width: indicator.width,
+    };
+  }, [
+    indicator.height,
+    indicator.left,
+    indicator.top,
+    indicator.width,
+    verticalMode,
+  ]);
+
   return (
-    <div className="absolute top-0 h-full w-[2px] bg-navy-light">
+    <div
+      className={clsx(
+        'absolute bottom-0 bg-navy-light',
+        'bottom-0 h-[2px] w-full',
+        'sm:top-0 sm:h-full sm:w-[2px]',
+      )}
+    >
       <span
         className="absolute h-full w-[2px] bg-green transition-all duration-300"
-        style={{
-          top: indicator.top,
-          height: indicator.height,
-        }}
+        style={style}
       />
     </div>
   );

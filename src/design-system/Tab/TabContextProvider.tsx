@@ -1,5 +1,5 @@
 import { useSafeContext } from '@/hooks/useSafeContext';
-import { createContext, createRef, FC, RefObject, useState } from 'react';
+import { createContext, FC, RefObject, useMemo, useState } from 'react';
 
 export interface TabContextValue {
   activeTabIndex: number | null;
@@ -8,7 +8,9 @@ export interface TabContextValue {
   setCurrentTabItemRef: (ref: RefObject<HTMLButtonElement>) => void;
   indicator: {
     top: number;
+    left: number;
     height: number;
+    width: number;
   };
 }
 
@@ -29,18 +31,29 @@ export const TabContextProvider: FC<TabContextProviderProps> = ({
     current: null,
   });
 
-  const contextValue: TabContextValue = {
-    activeTabIndex: props.activeTabIndex,
-    setActiveTabIndex: props.setActiveTabIndex,
+  const contextValue = useMemo<TabContextValue>(() => {
+    const currentTabItemRect =
+      currentTabItemRef.current?.getBoundingClientRect();
+    const tabGroupRect = props.tabGroupRef.current?.getBoundingClientRect();
+
+    return {
+      activeTabIndex: props.activeTabIndex,
+      setActiveTabIndex: props.setActiveTabIndex,
+      currentTabItemRef,
+      setCurrentTabItemRef,
+      indicator: {
+        top: (currentTabItemRect?.top ?? 0) - (tabGroupRect?.top ?? 0),
+        left: (currentTabItemRect?.left ?? 0) - (tabGroupRect?.left ?? 0),
+        height: currentTabItemRect?.height || 0,
+        width: currentTabItemRect?.width || 0,
+      },
+    };
+  }, [
     currentTabItemRef,
-    setCurrentTabItemRef,
-    indicator: {
-      top:
-        (currentTabItemRef.current?.getBoundingClientRect().top ?? 0) -
-        (props.tabGroupRef.current?.getBoundingClientRect().top ?? 0),
-      height: currentTabItemRef.current?.getBoundingClientRect().height || 0,
-    },
-  };
+    props.activeTabIndex,
+    props.setActiveTabIndex,
+    props.tabGroupRef,
+  ]);
 
   return (
     <TabContext.Provider value={contextValue}>{children}</TabContext.Provider>
