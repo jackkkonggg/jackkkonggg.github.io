@@ -1,4 +1,5 @@
 import { List } from '@/design-system/List';
+import clsx from 'clsx';
 import { FC } from 'react';
 import { AutoNumberedHeading } from './NumberedHeading';
 
@@ -22,7 +23,12 @@ export const About: FC = () => {
   return (
     <section id="about" className="py-24 max-w-4xl mx-auto">
       <AutoNumberedHeading heading="About Me" />
-      <div className="grid grid-cols-[minmax(0,_1fr)_200px] gap-x-10">
+      <div
+        className={clsx(
+          'grid grid-rows-[auto_auto] justify-items-center gap-10',
+          'sm:grid-cols-[minmax(0,_1fr)_200px]',
+        )}
+      >
         <div className="space-y-4 text-slate-dark">
           <p>
             Hello! My name is Jack and I enjoy creating things that live on the
@@ -50,7 +56,7 @@ export const About: FC = () => {
           />
         </div>
         <img
-          className="rounded"
+          className="rounded max-w-[200px]"
           src="https://media-exp1.licdn.com/dms/image/C5603AQH3gsHrqBq_TQ/profile-displayphoto-shrink_800_800/0/1638520282735?e=1646870400&v=beta&t=Skk1qKVHAZmss6B8D5jhriePbEugoLaIb7PKXEfQRQo"
           alt="Profile Photo"
         />

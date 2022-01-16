@@ -37,6 +37,7 @@ export const Socials: FC = () => {
         className={twMerge(
           'fixed bottom-0 left-6 text-slate-dark',
           'flex flex-col items-center justify-center gap-1',
+          'hidden sm:block',
         )}
       >
         <SocialIconLink href="https://github.com/jackkkonggg" Icon={GitHub} />
@@ -52,6 +53,7 @@ export const Socials: FC = () => {
         className={twMerge(
           'fixed bottom-0 right-8 rotate-90 origin-bottom-right text-slate-dark',
           'flex items-center gap-5',
+          'hidden sm:block',
         )}
       >
         <Link

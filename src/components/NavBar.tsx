@@ -4,7 +4,7 @@ import { Button } from '@/design-system/Button';
 import { Link } from '@/design-system/Link';
 import throttle from 'lodash.throttle';
 import clsx from 'clsx';
-import { Tool } from 'react-feather';
+import { Menu, Tool } from 'react-feather';
 
 let lastScrollTop = 0;
 const IS_AT_TOP_PX = 100;
@@ -41,7 +41,8 @@ export const NavBar: FC = () => {
   return (
     <header
       className={clsx(
-        'fixed top-0  w-full text-sm sm:px-10 lg:px-10',
+        'fixed top-0  w-full text-sm',
+        'px-6 sm:px-10 lg:px-10',
         'backdrop-blur bg-[rgba(10,25,47,0.85)] z-10 transition-all duration-500',
         isScrollAtTop ? 'py-8' : 'py-4',
         isNavBarShown && !isScrollAtTop && 'nav-shadow',
@@ -63,7 +64,7 @@ export const NavBar: FC = () => {
             <Tool />
           </Avatar>
         </div>
-        <ol className="flex items-center justify-between counter-reset">
+        <ol className="hidden sm:flex items-center justify-between counter-reset">
           {['About', 'Experience', 'Contact'].map((item) => (
             <li key={item} className="px-3 py-2 counter-increment">
               <Link
@@ -75,7 +76,16 @@ export const NavBar: FC = () => {
             </li>
           ))}
         </ol>
-        <Button className="ml-4">Resume</Button>
+        <Button className="hidden sm:block ml-4">Resume</Button>
+        <Avatar
+          role="button"
+          className="flex sm:hidden bg-transparent"
+          onClick={() => {
+            alert('Site is still under construction');
+          }}
+        >
+          <Menu />
+        </Avatar>
       </nav>
     </header>
   );
